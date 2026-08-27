@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "transfers": {
+      ".read": "auth != null",
+      "$transferId": {
+        ".write": "auth != null && ( (!data.exists() && newData.child('status').val() == 'Pending') || auth.token.email == 'owner@ere.local' )"
+      }
+    }
+  }
+}
